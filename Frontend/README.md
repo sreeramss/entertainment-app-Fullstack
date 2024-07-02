@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# Entertainment App 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![Screenshot 2024-07-01 214454](https://github.com/sreeramss/movie-app-frontend/assets/89720320/7f47323e-946d-452e-8af9-636cb4040dfb)
 
-In the project directory, you can run:
 
-### `npm start`
+This is a movie app project similar to IMDb, built using React.js, TailwindCSS, and React-Slick. The app fetches data from the TMDB API and includes various features such as authentication, bookmarking, and viewing movies and TV series.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Login Page:** Allows users to log in using their credentials.
 
-### `npm test`
+![Screenshot 2024-07-01 214408](https://github.com/sreeramss/movie-app-frontend/assets/89720320/5e156493-2320-4adc-a761-a7483f263319)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+- **Signup Page:** Enables new users to create an account.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Screenshot 2024-07-01 214424](https://github.com/sreeramss/movie-app-frontend/assets/89720320/2cece3fc-4414-4451-8224-2c1497b58bff)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  
+- **Home Page:** Displays a list of trending movies and TV series.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Screenshot 2024-07-01 214454](https://github.com/sreeramss/movie-app-frontend/assets/89720320/f6c05a0e-7fc6-48b7-ada5-084b5a1ac935)
 
-### `npm run eject`
+  
+- **Movies Page:** Shows a comprehensive list of movies.
+- **TV Series Page:** Lists various TV series.
+- **Bookmarks Page:** Users can add movies and TV series to their bookmarks and view them on this page.
+- **JWT Authentication:** Utilizes JWT tokens for user authentication.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technologies Used
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **React.js:** JavaScript library for building user interfaces.
+- **TailwindCSS:** Utility-first CSS framework for styling.
+- **React-Slick:** Carousel component for React.
+- **TMDB API:** Source of movie and TV series data.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Clone the repository:**
+    ```sh
+    git clone https://github.com/sreeramss/movie-app-frontend.git
+    cd movie-app-frontend
+    ```
 
-## Learn More
+2. **Install dependencies:**
+    ```sh
+    npm install
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Create a `.env` file in the root directory and add your TMDB API key:**
+    ```env
+    REACT_APP_AUTH_TOKEN=="YOUR_AUTH_TOKEN"
+    REACT_APP_API_KEY="YOUR_API_KEY"
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. **Start the development server:**
+    ```sh
+    npm start
+    ```
 
-### Code Splitting
+5. **Open your browser and navigate to:**
+    ```sh
+    http://localhost:3000
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Project Structure
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```plaintext
+movie-app-frontend/
+│
+├── public/
+│   ├── index.html
+│   └── ...
+│
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── App.js
+│   ├── index.js
+│   └── ...
+│
+├── .env
+├── .gitignore
+├── package.json
+└── README.md
