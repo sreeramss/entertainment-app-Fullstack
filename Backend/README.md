@@ -1,70 +1,179 @@
-# Getting Started with Create React App
+# Movie App Backend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the backend for the movie app project, which uses MongoDB for data storage. It manages user authentication, bookmarks, and data storage, utilizing Express.js and JWT tokens for secure user sessions.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **User Authentication:** Handles user login and signup with JWT token creation.
+- **Bookmarks Management:** Allows users to add and view bookmarks.
+- **Data Storage:** Uses MongoDB to store user and bookmark data.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Express.js:** Web application framework for Node.js.
+- **MongoDB:** NoSQL database for storing user and bookmark data.
+- **Mongoose:** MongoDB object modeling for Node.js.
+- **JWT:** JSON Web Tokens for secure authentication.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. **Clone the repository:**
+    ```sh
+    git clone https://github.com/sreeramss/movie-app-backend.git
+    cd movie-app-backend
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Install dependencies:**
+    ```sh
+    npm install
+    ```
 
-### `npm run build`
+3. **Create a `.env` file in the root directory and add your environment variables:**
+    ```env
+    PORT=your_port
+    MONGODB_URI=your_mongodb_uri
+    JWT_SECRET=your_jwt_secret
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Start the development server:**
+    ```sh
+    npm start
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. **API Endpoints:**
+    ## User Management
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Register a New User
 
-### `npm run eject`
+- **POST** `/signup`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Request Body:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```json
+{
+  "email": "testing03@gmail.com",
+  "password": "testing03"
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Response:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Status:** 201 Created
 
-## Learn More
+```json
+{
+  "message": "User Registered successfully.",
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### User Login
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **POST** `/login`
 
-### Code Splitting
+**Request Body:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```json
+{
+  "email": "testing03@gmail.com",
+  "password": "testing03"
+}
+```
 
-### Analyzing the Bundle Size
+**Response:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Status:** 200 OK
 
-### Making a Progressive Web App
+```json
+{
+  "token": "Bearer token"
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Get bookmarks
 
-### Advanced Configuration
+- **GET** `/api/bookmarks`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+**Response:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Status:** 200 OK
 
-### `npm run build` fails to minify
+```json
+{
+  []
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Add bookmarks
+
+- **POST** `/api/bookmarks`
+
+**Request Body:**
+
+```json
+{
+"movieId":"786892",
+"title":"Furiosa: A Mad Max Saga",
+"backdropPath":"/wNAhuOZ3Zf84jCIlrcI6JhgmY5q.jpg",
+"releaseYear":"2024"
+}
+```
+
+**Response:**
+
+- **Status:** 201 Created
+
+```json
+{
+    "userId": "6671bf8a203592d61b19bc0e",
+    "movieId": "786892",
+    "title": "Furiosa: A Mad Max Saga",
+    "backdropPath": "/wNAhuOZ3Zf84jCIlrcI6JhgmY5q.jpg",
+    "releaseYear": "2024",
+    "_id": "667c4bae59ab65927ac6f940",
+    "__v": 0
+}
+```
+
+
+### Delete bookmarks by ID
+
+- **DELETE** `/api/bookmarks/667c4bae59ab65927ac6f940`
+
+**Response:**
+
+- **Status:** 200 OK
+
+```json
+{
+    "message": "Bookmark deleted"
+}
+```
+
+### Delete bookmarks by Movie ID
+
+- **DELETE** `/api/bookmarks/786892`
+
+**Response:**
+
+- **Status:** 200 OK
+
+```json
+{
+    "message": "Bookmark deleted"
+}
+```
+
+
+## Project Structure
+
+```plaintext
+movie-app-backend/
+│
+├── models/
+├── routes/
+├── server.js
+└── .env
+├── .gitignore
+├── package.json
+└── README.md
