@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 14px;
+    font-style: normal;
+    background-color: #10141e;
+    color: white;
+  }
+
+
+.bordersss{
+    border-bottom: 1px solid white ;
+}
+
+@media screen and (min-width:1024px) {
+  .classs{
+    height: 90vh;
+  }
+}
+
+.carousel-container {
+  width: 100%;
+  margin: auto;
+  padding-left: 2px;
+}
+
+.carousel-container img {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+
+}
+.bookmark-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.bookmark-container:hover .bookmark-icon-filled {
+  display: block;
+}
+
+.bookmark-container:hover .bookmark-icon-un-filled {
+  display: none;
+}
+
+.bookmark-icon-filled {
+  display: none;
+}
